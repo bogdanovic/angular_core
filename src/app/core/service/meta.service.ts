@@ -36,7 +36,7 @@ export class MetaService {
       throw new Error(`Attempt to set ${tag} through 'setTag': 'title' and 'titleSuffix' are reserved tag names.
       Please use 'MetaService.setTitle' instead`);
     }
-    let content = isDefined(value) ? value : (this.metaConfig.defaults[tag] || '');
+    const content = isDefined(value) ? value : (this.metaConfig.defaults[tag] || '');
     this._updateMetaTag(tag, content);
     if (tag === 'description') {
       this._updateMetaTag('og:description', content);
@@ -58,7 +58,6 @@ export class MetaService {
   }
 
   private _warnMissingGuard() {
-    console.log('asdasasda');
     if (isDefined(this.metaConfig.warnMissingGuard) && !this.metaConfig.warnMissingGuard) {
       return;
     }

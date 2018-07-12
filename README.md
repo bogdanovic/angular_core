@@ -37,6 +37,10 @@ Run `npm run release` create new version of application with tag and add all com
 
 To enable service worker and other useful PWA fetcher go to angular configuration in `./angular.json` and set `"serviceWorker": true`.
 
+## Class-transformer
+
+To project added [Class-transformer](https://github.com/typestack/class-transformer) allows you to transform plain object to some instance of class and versa. Also it allows to serialize / deserialize object based on criteria.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
