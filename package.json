@@ -43,6 +43,7 @@
     "class-transformer": "^0.1.9",
     "core-js": "^2.5.4",
     "fs-extra": "^6.0.1",
+    "ng2-meta": "^5.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.1",
     "simple-git": "^1.95.0",

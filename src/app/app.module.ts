@@ -1,10 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
-
+import {MetaConfig, MetaModule} from 'ng2-meta';
 import {AppComponent} from './app.component';
 import {HomeComponent, Page1Component} from '@app/pages';
-import {CoreModule, MetaConfig, MetaModule} from '@app/core';
+import {CoreModule} from '@app/core';
 import {SharedModule} from '@app/shared';
 import {AppRoutingModule} from "@app/app-routing.module";
 import {environment} from "@env/environment.dev";
@@ -16,7 +16,8 @@ const defaultMetaData: MetaConfig = {
     titleSuffix: ' | Site Name',
     'any:other': 'arbitrary tag can be used',
     author: 'Marek Bogdanovic',
-    description: 'Default Description'
+    description: 'Default Description',
+    my_simple_test: 'Default Description'
   }
 };
 

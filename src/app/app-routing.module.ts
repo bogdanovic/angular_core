@@ -1,7 +1,7 @@
 import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {MetaGuard} from "@app/core";
-import {HomeComponent, Page1Component} from "@app/pages";
+import {MetaGuard} from 'ng2-meta';
+import {HomeComponent, Page1Component} from '@app/pages';
 
 export const APP_ROUTES: Routes = [
   {

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { MetaService } from 'ng2-meta';
 import {environment} from '@env/environment.dev';
 
 @Component({
@@ -9,6 +10,5 @@ import {environment} from '@env/environment.dev';
 export class AppComponent {
   title = environment.title;
 
-  constructor() {
-  }
+  constructor(private metaService: MetaService) {}
 }
