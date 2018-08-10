@@ -1,35 +1,32 @@
-import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {MetaGuard} from 'ng2-meta';
-import {HomeComponent, Page1Component} from '@app/pages';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { MetaGuard } from "ng2-meta";
+import { HomeComponent, Page1Component } from "@app/pages";
 
 export const APP_ROUTES: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent,
     canActivate: [MetaGuard],
     data: {
       meta: {
-        title: 'Home page',
-        description: 'Description of the home page'
+        title: "Home page",
+        description: "Description of the home page"
       }
     }
   },
   {
-    path: 'page1',
+    path: "page1",
     component: Page1Component,
     canActivate: [MetaGuard]
   },
-  {path: '**', redirectTo: ''}
+  { path: "**", redirectTo: "" }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(APP_ROUTES)
-  ],
+  imports: [RouterModule.forRoot(APP_ROUTES)],
   exports: [RouterModule]
 })
-
 
 /**
  * Define publick path in app.
@@ -45,10 +42,15 @@ export class AppRoutingModule {
     };
   }
 
-  public constructor(@Optional() @SkipSelf() parentModule: AppRoutingModule) {
+  public constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: AppRoutingModule
+  ) {
     if (parentModule) {
       throw new Error(
-        'AppRoutingModule is already loaded. Import it in the AppModule only');
+        "AppRoutingModule is already loaded. Import it in the AppModule only"
+      );
     }
   }
 }

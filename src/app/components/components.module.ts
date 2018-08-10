@@ -2,41 +2,33 @@
 import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {NavComponent} from './components/nav/nav.component';
 import {RouterModule} from '@angular/router';
+import { NavComponent } from '@app/components/nav/nav.component';
 
 @NgModule({
   imports: [
-    /* angular stuff */
     CommonModule,
     FormsModule,
-    RouterModule,
-
-    /* 3rd party components */
-    // ...
+    RouterModule
   ],
   declarations: [
     NavComponent
   ],
   exports: [
-    /* 3rd party components */
-    // ...
-
-    /* our own custom components */
     NavComponent
   ]
 })
-export class SharedModule {
+export class ComponentsModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SharedModule
+      ngModule: ComponentsModule
     };
   }
 
-  public constructor(@Optional() @SkipSelf() parentModule: SharedModule) {
+  public constructor(@Optional() @SkipSelf() parentModule: ComponentsModule) {
     if (parentModule) {
       throw new Error(
-        'SharedModule is already loaded. Import it in the AppModule only');
+        'ComponentsModule is already loaded. Import it in the AppModule only');
     }
   }
 }
