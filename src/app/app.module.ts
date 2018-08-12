@@ -7,6 +7,7 @@ import { HomeComponent, Page1Component } from "@app/pages";
 import { CoreModule } from "@app/core";
 import { AppRoutingModule } from "@app/app-routing.module";
 import { environment } from "@env/environment.dev";
+import {TransferHttpCacheModule} from '@nguniversal/common';
 import { ComponentsModule } from "@app/components/components.module";
 
 const defaultMetaData: MetaConfig = {
@@ -29,7 +30,8 @@ const defaultMetaData: MetaConfig = {
      * depend on any other features just on services provided by
      * CoreModule and components provided by SharedModule.
      */
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: environment.appId}),
+    TransferHttpCacheModule,
     CoreModule.forRoot(),
     AppRoutingModule.forRoot(),
     MetaModule.forRoot(defaultMetaData),

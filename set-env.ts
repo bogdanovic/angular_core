@@ -25,6 +25,7 @@ try {
 const targetPath = `./src/environments/environment.${environment}.ts`;
 
 const config = {
+  appId: `12345`,
   title: `Skeleton Angular ${environment.toUpperCase()}`,
   baseUrl: '/production',
   production: isProd,

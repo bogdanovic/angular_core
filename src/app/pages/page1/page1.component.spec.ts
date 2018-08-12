@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {Page1Component} from './page1.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {SharedModule} from '@app/shared';
+import { ComponentsModule } from '@app/components/components.module';
 
 describe('Page1Component', () => {
   let component: Page1Component;
@@ -11,7 +11,7 @@ describe('Page1Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [Page1Component],
-      imports: [RouterTestingModule, SharedModule]
+      imports: [RouterTestingModule, ComponentsModule]
     })
       .compileComponents();
   }));
