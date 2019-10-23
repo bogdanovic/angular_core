@@ -1,29 +1,14 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { ServiceWorkerModule } from "@angular/service-worker";
-import { MetaConfig, MetaModule } from "ng2-meta";
-import { AppComponent } from "./app.component";
-import { HomeComponent, Page1Component } from "@app/pages";
-import { CoreModule } from "@app/core";
-import { AppRoutingModule } from "@app/app-routing.module";
-import { environment } from "@env/environment.dev";
-import {TransferHttpCacheModule} from '@nguniversal/common';
-import { ComponentsModule } from "@app/components/components.module";
-
-const defaultMetaData: MetaConfig = {
-  useTitleSuffix: true,
-  defaults: {
-    title: "Default title",
-    titleSuffix: " | Site Name",
-    "any:other": "arbitrary tag can be used",
-    author: "Marek Bogdanovic",
-    description: "Default Description",
-    my_simple_test: "Default Description"
-  }
-};
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { HomeComponent, Page1Component, DefaultPageComponent } from '@app/pages';
+import { CoreModule } from '@app/core';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { environment } from '@env/environment.dev';
+import { ComponentsModule } from '@app/components/components.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, Page1Component],
+  declarations: [AppComponent, HomeComponent, Page1Component, DefaultPageComponent],
   imports: [
     /**
      * Rule of thumb is to try to create features which don’t
@@ -31,14 +16,9 @@ const defaultMetaData: MetaConfig = {
      * CoreModule and components provided by SharedModule.
      */
     BrowserModule.withServerTransition({appId: environment.appId}),
-    TransferHttpCacheModule,
     CoreModule.forRoot(),
     AppRoutingModule.forRoot(),
-    MetaModule.forRoot(defaultMetaData),
-    ComponentsModule.forRoot(),
-
-    // ServiceWorker status in project.
-    environment.serviceWorker ? ServiceWorkerModule.register("/ngsw-worker.js", {}) : []
+    ComponentsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

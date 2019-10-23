@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {classToPlain, plainToClass} from "class-transformer";
+import {classToPlain, plainToClass} from 'class-transformer';
 import {User} from '@app/core/model/user.model';
 
 @Component({
@@ -10,22 +10,10 @@ import {User} from '@app/core/model/user.model';
 export class HomeComponent implements OnInit {
   userJson = [
     {
-      "id": 1,
-      "firstName": "Johny",
-      "lastName": "Cage",
-      "age": 27
-    },
-    {
-      "id": 2,
-      "firstName": "Ismoil",
-      "lastName": "Somoni",
-      "age": 50
-    },
-    {
-      "id": 3,
-      "firstName": "Luke",
-      "lastName": "Dacascos",
-      "age": 12
+      id: 1,
+      firstName: 'Johny',
+      lastName: 'Cage',
+      age: 27
     }];
   users: User[] = plainToClass(User, this.userJson);
 

@@ -1,26 +1,21 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { MetaGuard } from "ng2-meta";
-import { HomeComponent, Page1Component } from "@app/pages";
+import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent, Page1Component, DefaultPageComponent} from '@app/pages';
 
 export const APP_ROUTES: Routes = [
   {
-    path: "",
-    component: HomeComponent,
-    canActivate: [MetaGuard],
-    data: {
-      meta: {
-        title: "Home page",
-        description: "Description of the home page"
-      }
-    }
+    path: '',
+    component: HomeComponent
   },
   {
-    path: "page1",
-    component: Page1Component,
-    canActivate: [MetaGuard]
+    path: 'page1',
+    component: Page1Component
   },
-  { path: "**", redirectTo: "" }
+  {
+    path: 'default',
+    component: DefaultPageComponent
+  },
+  {path: '**', redirectTo: 'default'}
 ];
 
 @NgModule({
@@ -34,7 +29,6 @@ export const APP_ROUTES: Routes = [
 export class AppRoutingModule {
   /**
    * Static forRoot() takes a service configuration object and returns a ModuleWithProviders used in {@link RouterModule}.
-   * @returns {{ngModule: PublicPagesModule}}
    */
   static forRoot(): ModuleWithProviders {
     return {
@@ -45,11 +39,11 @@ export class AppRoutingModule {
   public constructor(
     @Optional()
     @SkipSelf()
-    parentModule: AppRoutingModule
+      parentModule: AppRoutingModule
   ) {
     if (parentModule) {
       throw new Error(
-        "AppRoutingModule is already loaded. Import it in the AppModule only"
+        'AppRoutingModule is already loaded. Import it in the AppModule only'
       );
     }
   }
